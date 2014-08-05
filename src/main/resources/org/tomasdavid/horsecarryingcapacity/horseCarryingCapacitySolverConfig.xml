@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+
+  <solutionClass>org.tomasdavid.horsecarryingcapacity.HorseCarryingCapacity</solutionClass>
+  <entityClass>org.tomasdavid.horsecarryingcapacity.Cargo</entityClass>
+
+  <scoreDirectorFactory>
+    <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
+    <scoreDrl>org/tomasdavid/horsecarryingcapacity/horseCarryingCapacityRules.drl</scoreDrl>
+    <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
+  </scoreDirectorFactory>
+
+  <constructionHeuristic>
+    <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+  </constructionHeuristic>
+
+  <localSearch>
+    <termination>
+
+      <secondsSpentLimit>30</secondsSpentLimit>
+
+    </termination>
+
+    <acceptor>
+      <entityTabuSize>7</entityTabuSize>
+    </acceptor>
+
+    <forager>
+      <acceptedCountLimit>1000</acceptedCountLimit>
+    </forager>
+  </localSearch>
+
+</solver>

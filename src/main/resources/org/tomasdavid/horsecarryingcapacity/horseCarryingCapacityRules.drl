@@ -1,0 +1,18 @@
+package org.tomasdavid.horsecarryingcapacity;
+
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
+import org.tomasdavid.horsecarryingcapacity.Horse;
+import org.tomasdavid.horsecarryingcapacity.Cargo;
+
+global HardSoftScoreHolder scoreHolder;
+
+rule "horseCarryingCapacityRule"
+    when
+        $horse : Horse($carryingCapacity : carryingCapacity)
+        $totalWeight : Number(intValue > $carryingCapacity) from accumulate(
+            Cargo(horse == $horse, $weight : weight),
+            sum($weight)
+        )
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, $carryingCapacity - $totalWeight.intValue());
+end
