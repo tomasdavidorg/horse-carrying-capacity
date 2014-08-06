@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solver>
 
+  <!-- Class of solution and entity class should be declared here. -->
   <solutionClass>org.tomasdavid.horsecarryingcapacity.HorseCarryingCapacity</solutionClass>
   <entityClass>org.tomasdavid.horsecarryingcapacity.Cargo</entityClass>
 
+  <!-- Settings of score. Type score, location od rules and there are only negative constraints so score can goes only
+   down. -->
   <scoreDirectorFactory>
     <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
     <scoreDrl>org/tomasdavid/horsecarryingcapacity/horseCarryingCapacityRules.drl</scoreDrl>
     <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
   </scoreDirectorFactory>
 
+  <!-- Finding best solution ends when score 0hard/0soft is found OR after 30s. -->
+  <termination>
+    <terminationCompositionStyle>OR</terminationCompositionStyle>
+    <bestScoreLimit>0hard/0soft</bestScoreLimit>
+    <secondsSpentLimit>30</secondsSpentLimit>
+  </termination>
+
+  <!-- Construction heuristic build initial solution in finite length of time. -->
   <constructionHeuristic>
     <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
   </constructionHeuristic>
 
+  <!-- Local search uses initial solution and then finds better and better solution -->
   <localSearch>
-    <termination>
 
-      <secondsSpentLimit>30</secondsSpentLimit>
-
-    </termination>
-
+    <!-- Acceptor checks whether move is accepted or not. -->
     <acceptor>
-      <entityTabuSize>7</entityTabuSize>
+      <entityTabuSize>5</entityTabuSize>
     </acceptor>
 
+    <!-- Forager gathers accepted moves and picks the move as next step. acceptedCountLimit specifies how many accepted
+    moves should be evaluated during each step  -->
     <forager>
       <acceptedCountLimit>1000</acceptedCountLimit>
     </forager>
+
   </localSearch>
 
 </solver>

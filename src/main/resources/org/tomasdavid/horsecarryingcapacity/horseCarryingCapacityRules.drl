@@ -8,7 +8,7 @@ import org.tomasdavid.horsecarryingcapacity.Cargo;
 // global variable for score
 global HardSoftScoreHolder scoreHolder;
 
-// This rule calculate total weight of cargo on horse. If total weight is greater then
+// This rule calculates total weight of cargo on horse. If total weight is greater then
 // horse carrying capacity, then score is calculated as horse carrying capacity minus
 // total weight of cargo on horse
 rule "horseCarryingCapacityRule"

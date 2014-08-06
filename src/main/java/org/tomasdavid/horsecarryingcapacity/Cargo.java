@@ -54,7 +54,7 @@ public class Cargo {
      * Returns horse which carry the cargo.
      * @return Loaded horse.
      */
-    @PlanningVariable(valueRangeProviderRefs = {"horseRange"}, strengthComparatorClass = HorseStrengthComparator.class)
+    @PlanningVariable(valueRangeProviderRefs = {"horseRange"})
     public Horse getHorse() {
         return horse;
     }

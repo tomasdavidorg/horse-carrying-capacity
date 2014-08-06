@@ -17,7 +17,7 @@
   </dependencies>
 
   <!--
-    To run application execute: mvn exec:java
+    To run application execute: mvn clean install exec:java
     If you have problem with JDK, set correct JDK: export JAVA_HOME=/usr/java/jdk*
   -->
 
