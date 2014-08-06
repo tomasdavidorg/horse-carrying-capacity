@@ -21,6 +21,7 @@ public class Generator {
         cargoList.add(new Cargo(10));
         cargoList.add(new Cargo(20));
         cargoList.add(new Cargo(30));
+        cargoList.add(new Cargo(10));
         cargoList.add(new Cargo(20));
     }
 

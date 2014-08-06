@@ -9,14 +9,17 @@
   <version>1.0-SNAPSHOT</version>
 
   <dependencies>
-
     <dependency>
       <groupId>org.optaplanner</groupId>
       <artifactId>optaplanner-core</artifactId>
       <version>6.1.0.Final</version>
     </dependency>
-
   </dependencies>
+
+  <!--
+    To run application execute: mvn exec:java
+    If you have problem with JDK, set correct JDK: export JAVA_HOME=/usr/java/jdk*
+  -->
 
   <build>
     <plugins>

@@ -1,11 +1,16 @@
 package org.tomasdavid.horsecarryingcapacity;
 
+// needed imports for score and app classes
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
 import org.tomasdavid.horsecarryingcapacity.Horse;
 import org.tomasdavid.horsecarryingcapacity.Cargo;
 
+// global variable for score
 global HardSoftScoreHolder scoreHolder;
 
+// This rule calculate total weight of cargo on horse. If total weight is greater then
+// horse carrying capacity, then score is calculated as horse carrying capacity minus
+// total weight of cargo on horse
 rule "horseCarryingCapacityRule"
     when
         $horse : Horse($carryingCapacity : carryingCapacity)
