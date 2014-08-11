@@ -13,32 +13,9 @@
     <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
   </scoreDirectorFactory>
 
-  <!-- Finding best solution ends when score 0hard/0soft is found OR after 30s. -->
-  <termination>
-    <terminationCompositionStyle>OR</terminationCompositionStyle>
-    <bestScoreLimit>0hard/0soft</bestScoreLimit>
-    <secondsSpentLimit>30</secondsSpentLimit>
-  </termination>
-
-  <!-- Construction heuristic build initial solution in finite length of time. -->
-  <constructionHeuristic>
-    <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
-  </constructionHeuristic>
-
-  <!-- Local search uses initial solution and then finds better and better solution -->
-  <localSearch>
-
-    <!-- Acceptor checks whether move is accepted or not. -->
-    <acceptor>
-      <entityTabuSize>5</entityTabuSize>
-    </acceptor>
-
-    <!-- Forager gathers accepted moves and picks the move as next step. acceptedCountLimit specifies how many accepted
-    moves should be evaluated during each step  -->
-    <forager>
-      <acceptedCountLimit>1000</acceptedCountLimit>
-    </forager>
-
-  </localSearch>
+ <!-- Exhaustive search always find global optimum. -->
+  <exhaustiveSearch>
+    <exhaustiveSearchType>BRANCH_AND_BOUND</exhaustiveSearchType>
+  </exhaustiveSearch>
 
 </solver>
