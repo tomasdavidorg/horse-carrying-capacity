@@ -4,10 +4,15 @@ import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
 /**
- * Cargo class. Cargo has certain weight and it should be loaded on a horse.
+ * Cargo class. Cargo has own label and certain weight and it should be loaded on a horse.
  */
 @PlanningEntity(difficultyComparatorClass = CargoDifficultyComparator.class)
 public class Cargo {
+
+    /**
+     * Label of cargo.
+     */
+    private String label;
 
     /**
      * Weight of cargo.
@@ -21,9 +26,11 @@ public class Cargo {
 
     /**
      * Cargo constructor.
+     * @param label Label of cargo;
      * @param weight Weight of cargo.
      */
-    public Cargo(int weight) {
+    public Cargo(String label, int weight) {
+        this.label = label;
         this.weight = weight;
     }
 
@@ -65,5 +72,26 @@ public class Cargo {
      */
     public void setHorse(Horse horse) {
         this.horse = horse;
+    }
+
+    /**
+     * Get label of cargo;
+     * @return Label of cargo.
+     */
+    public String getLabel() {
+        return label;
+    }
+
+    /**
+     * Sets new label of cargo.
+     * @param label New label.
+     */
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    @Override
+    public String toString() {
+        return "Cargo-" + label + "=" + weight;
     }
 }
